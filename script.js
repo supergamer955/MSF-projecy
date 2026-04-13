@@ -1,21 +1,16 @@
-// 1. Initialize Scroll Animations
-AOS.init({ 
-    duration: 1000, 
-    once: false 
-});
+// Initialize Animations
+AOS.init({ duration: 1000, once: false });
 
-// 2. Scroll Progress Bar Logic
+// Scroll Progress Logic
 window.onscroll = () => {
     let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     let scrolled = (winScroll / height) * 100;
-    let progressBar = document.getElementById("progress-bar");
-    if (progressBar) {
-        progressBar.style.width = scrolled + "%";
-    }
+    let bar = document.getElementById("progress-bar");
+    if (bar) bar.style.width = scrolled + "%";
 };
 
-// 3. Custom Cursor Logic (Fixed: Only defined ONCE)
+// Custom Cursor Logic - DEFINED ONLY ONCE
 const cursor = document.querySelector('#custom-cursor');
 
 if (cursor) {
@@ -24,7 +19,7 @@ if (cursor) {
         cursor.style.top = e.clientY + 'px';
     });
 
-    // Cursor Interactions for Links, Buttons, and Cards
+    // Hover Effects
     document.querySelectorAll('a, button, .glass-card').forEach(item => {
         item.addEventListener('mouseenter', () => {
             cursor.style.transform = 'scale(4)';
