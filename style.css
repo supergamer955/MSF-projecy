@@ -124,3 +124,39 @@ header {
     .hero-content h1 { font-size: 2.5rem; }
     nav ul { display: none; } /* Simplifies mobile nav */
 }
+
+:root {
+    --bg: #0d0d0e;
+    --accent-red: #ee3124;
+    --glass: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.1);
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    cursor: none; /* Hides the default mouse */
+}
+
+body {
+    background-color: var(--bg);
+    color: white;
+    font-family: sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+#custom-cursor {
+    width: 10px;
+    height: 10px;
+    background: var(--accent-red);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none; /* Crucial: lets you click "through" the dot */
+    z-index: 10000; 
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease-out;
+}
+
+/* Rest of your styles (nav, hero, glass-card, etc.) go here... */
