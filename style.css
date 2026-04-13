@@ -1,0 +1,77 @@
+:root {
+    --bg-color: #0f172a;
+    --accent: #38bdf8;
+    --glass: rgba(255, 255, 255, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none; /* We are making a custom one */
+}
+
+body {
+    background: var(--bg-color);
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+#custom-cursor {
+    width: 20px;
+    height: 20px;
+    background: var(--accent);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease;
+    mix-blend-mode: difference;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 10%;
+    position: fixed;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    z-index: 100;
+}
+
+header {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #38bdf8, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.container {
+    padding: 100px 10%;
+}
+
+.glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 3rem;
+    border-radius: 20px;
+    margin-bottom: 50px;
+    transition: 0.3s;
+}
+
+.glass-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-10px);
+}
