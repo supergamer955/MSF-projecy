@@ -81,6 +81,25 @@ header {
     transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+h1, h2 {
+    text-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+}
+
+/* Advanced button style */
+.btn-main {
+    padding: 12px 24px;
+    background: linear-gradient(45deg, #38bdf8, #818cf8);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-main:active {
+    transform: scale(0.95); /* Feels like a real button press */
+}
 /* Add this to the glass-card hover for a 3D tilt */
 .glass-card:hover {
     transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
