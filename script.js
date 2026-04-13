@@ -1,23 +1,31 @@
-// Initialize Animations
-AOS.init({
-    duration: 1000,
-    once: false
-});
+// Initialize Scroll Animations
+AOS.init({ duration: 800, once: false });
 
-// Custom Cursor Logic
+// Progress Bar Logic
+window.onscroll = () => {
+    let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let scrolled = (winScroll / height) * 100;
+    document.getElementById("progress-bar").style.width = scrolled + "%";
+};
+
+// Tactical Cursor
 const cursor = document.querySelector('#custom-cursor');
-
 document.addEventListener('mousemove', (e) => {
     cursor.style.left = e.clientX + 'px';
     cursor.style.top = e.clientY + 'px';
 });
 
-// Expand cursor on hoverable elements
-document.querySelectorAll('a, .glass-card').forEach(link => {
-    link.addEventListener('mouseenter', () => {
-        cursor.style.transform = 'scale(3)';
+// Cursor Interactions
+document.querySelectorAll('a, button, .glass-card').forEach(item => {
+    item.addEventListener('mouseenter', () => {
+        cursor.style.transform = 'scale(4)';
+        cursor.style.background = 'rgba(238, 49, 36, 0.2)';
+        cursor.style.border = '1px solid #ee3124';
     });
-    link.addEventListener('mouseleave', () => {
+    item.addEventListener('mouseleave', () => {
         cursor.style.transform = 'scale(1)';
+        cursor.style.background = '#ee3124';
+        cursor.style.border = 'none';
     });
 });
