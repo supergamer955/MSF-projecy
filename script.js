@@ -1,13 +1,17 @@
-// Initialize Scroll Animations
-AOS.init({ duration: 800, once: false });
+AOS.init({ duration: 1000, once: false });
 
-// Progress Bar Logic
 window.onscroll = () => {
     let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     let scrolled = (winScroll / height) * 100;
     document.getElementById("progress-bar").style.width = scrolled + "%";
 };
+
+const cursor = document.querySelector('#custom-cursor');
+document.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+});
 
 // Tactical Cursor
 const cursor = document.querySelector('#custom-cursor');
